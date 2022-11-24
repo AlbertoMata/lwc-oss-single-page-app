@@ -1,5 +1,6 @@
 import lwc from '@lwc/rollup-plugin';
 import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
 import run from '@rollup/plugin-run';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -30,16 +31,17 @@ const lwcConfig = {
 	input: lwcInput,
 	output: lwcOutput,
 	plugins: [
+		resolve(),
 		replace({
 			'process.env.NODE_ENV': JSON.stringify('development'),
 			preventAssignment: true
 		}),
 		lwc()
-	]
+	],
 };
 
 const serverConfig = {
-    external: ['express', 'path', 'url'],
+	external: ['express', 'path', 'url'],
 	input: serverInput,
 	output: serverOutput,
 	plugins: [dev && run()]
