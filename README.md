@@ -1,4 +1,4 @@
-## LWC-OSS Minimal Rollup Setup
+# LWC Single Page App  
 
 This code repository intends to be an example of how to build a minimal static
 `lwc-oss` site served by using `express` and bundled with `rollup`. 
