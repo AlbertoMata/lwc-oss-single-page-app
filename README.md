@@ -1,14 +1,20 @@
-# LWC Single Page App  
+# LWC Single-Page App  
 
-This code repository intends to be an example of how to build a minimal static
-`lwc-oss` site served by using `express` and bundled with `rollup`. 
+This project is an example of how to build a basic single-page app. In contrast
+to multi-page apps, where you need to serve a new page whenever the client
+fetches resources from a different URL on your domain, single-page apps provide
+a way to serve resources dynamically while controlling the routing history of
+the browser on the front-end application. The advantages of single-page
+applications are that they can work seamlessly integrated with the browser
+history and that we get better performance results while loading dynamic content. 
 
-## Quickstart
+## Quickstart 
 
-First, install all `dependencies` and `devdependencies` locally:
+First, install all `dependencies` and `devdependencies` locally, we are using 
+`--legacy-peer-deps` to avoid issues with the deprecated packages in this version:
 
 ```
-npm install
+npm install --legacy-peer-deps
 ```
 
 Run a local server in port 5000:
@@ -16,30 +22,22 @@ Run a local server in port 5000:
 ```
 npm run dev
 ```
-## Structure
 
-The site is designed using a basic client-server architecture keeping the file
-structure simple but organized. Web architects may follow a different path, but
-the intention is to provide a basis for future templates.
+## The Router Library 
 
+There are multiple custom solutions for client-side routing with Lightning Web
+Components, but we choose the application
+[@lwce/router](https://github.com/LWC-Essentials/router) package.  This package
+has received attention from the official Salesforce Developers group, and
+although it hasn't been updated recently, we try to adhere to the community's
+practices as much as possible. In the future, we might use a forked
+package to update the dependency tree if the official package doesn't receive
+new updates.
 
-## Dependencies
+## The Example App
 
-A minimal set of dependencies were added to the `package.json`, just enough to
-keep the website up and running. As new versions for these dependencies are
-delivered by package maintainers and Salesforce, the structure might change.
-Also, if new features are needed to assure basic security or functionality,
-we'll add new packages. 
-
-## Bundling
-
-We are using `rollup` for bundling the project since it keeps the project
-running with a minimal set of dependencies, the config script might get more
-complex in future releases.
-
-## Deployment
-
-There are no deployment details yet, but we intend the site can run in an IaaS
-instance like an `aws-ec2`. Future versions will take care of this topic and
-suggestions are welcomed. 
-
+The application we are using here is a carbon copy of the one provided by the
+[@lwce/router](https://github.com/LWC-Essentials/router) package. We just
+bundled it using `rollup` to use the example as a reference for more complex
+projects. The template we are using for the project setup comes from
+[lwc-oss-minimal-rollup-setup](https://github.com/AlbertoMata/lwc-oss-minimal-rollup-setup).
